@@ -1,0 +1,876 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Timeseries
+</name>
+</assembly>
+<members>
+<member name="M:Timeseries.DummyTimeseries.Ones(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Creates a timeseries with all its DataPoints assigned to one.
+ </summary>
+	<param name="Length">The length of the newly created timeseries</param>
+	<param name="FrequencyValue">The frequency of the newly created timeseries</param>
+	<param name="OffsetValue">The offset of the newly created timeseries</param>
+	<returns>Returns the created Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.DummyTimeseries.Zeroes(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Creates a timeseries with all its DataPoints assigned to zero.
+ </summary>
+	<param name="Length">The length of the newly created timeseries</param>
+	<param name="FrequencyValue">The frequency of the newly created timeseries</param>
+	<param name="OffsetValue">The offset of the newly created timeseries</param>
+	<returns>Returns the created Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.DummyTimeseries.Stepped(System.Double,System.Double,System.Double,System.Int32,System.Int32)">
+	<summary>
+ Creates a timeseries with all its DataPoints assigned to a sequence starting at StartValue, ending before or at EndValue, with StepValue as step .
+ </summary>
+	<param name="StartValue">The starting value of the newly created timeseries</param>
+	<param name="StepValue">The value of the step of the newly created timeseries</param>
+	<param name="EndValue">The ending value of the newly created timeseries</param>
+	<param name="FrequencyValue">The frequency of the newly created timeseries</param>
+	<param name="OffsetValue">The offset of the newly created timeseries</param>
+	<returns>Returns the created Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.DummyTimeseries.SteppedByOne(System.Double,System.Double,System.Int32,System.Int32)">
+	<summary>
+ Creates a timeseries with all its DataPoints assigned to a sequence starting at StartValue, ending before or at EndValue, with a step value of one .
+ </summary>
+	<param name="StartValue">The starting value of the newly created timeseries</param>
+	<param name="EndValue">The ending value of the newly created timeseries</param>
+	<param name="FrequencyValue">The frequency of the newly created timeseries</param>
+	<param name="OffsetValue">The offset of the newly created timeseries</param>
+	<returns>Returns the created Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateBest">
+	<summary>
+ Calculates the best forecast based on the given error (default is sMAPE), doesn't change the ForecastModels list values.
+ </summary>
+	<returns>The best forecast</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateAll">
+	<summary>
+ Calculates all the forecasts in the ForecastModels list, so every forecast can be accessed by the list (ForecastModels(index)
+  </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateAtIndex(System.Int32)">
+	<summary>
+ Calculates the single forecast in the ForecastModels list's specific Index
+ </summary>
+	<param name="Index"></param>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateModel(Timeseries.Forecast@)">
+	<summary>
+ Calculates the forecast model given by input (it alters the input itself)
+ </summary>
+	<param name="InputForecastModel">The forecast model to be calculated</param>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CrossValidationError(System.Int32)">
+	<summary>
+ Returns the cross validation error of the forecast model and the original timeseries, the default type of error is sMAPE and the default InsampleRatio Value = 0.8
+ </summary>
+	<param name="index">The index of the forecast in ForecastModels list that its error we want to calculate</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CrossValidationError(Timeseries.Forecast)">
+	<summary>
+ Returns the cross validation error of the forecast model and the original timeseries, the default type of error is sMAPE and the default InsampleRatio Value = 0.8
+ </summary>
+	<param name="InputForecastModel">The Forecast that its error we want to calculate based on this instance's original timeseries</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateBudgetForecast(System.Double[])">
+	<summary>
+ Returns the Budget Forecasting Timeseries based on the provided GrowthRate Array
+ </summary>
+	<param name="GrowthRate">The array of horizon's GrowthRate values</param>
+	<returns>The Budget Forecasting (Its insample values equals to the original's</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ForecastingAnalysis.CalculateFinalForecast(System.Double,System.Double,System.Double)">
+	<summary>
+ Returns the Final Forecast Timeseries based on the values of the statistical, judgmental and budget forecast timeseries, and their respective weights which are given as input and must sum up to one.
+ </summary>
+	<param name="StatisticalWeight">The Final Forecast percentage that comes from the Statistical Forecast</param>
+	<param name="JudgmentalWeight">The Final Forecast percentage that comes from the Judgmental Forecast</param>
+	<param name="BudgetWeight">The Final Forecast percentage that comes from the Budget Forecast</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Croston.Calculate">
+	<summary>
+ Returns the Forecast Model of the Croston Method for intermittent demand manipulation
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Forecast.toString">
+	<summary>
+ Returns a String containing information about the Forecast Model
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.StatisticalMethods.SMA(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Simple Moving Average
+ </summary>
+	<param name="Input">The Timeseries we want to smooth</param>
+	<param name="n">The length parameter</param>
+	<returns>The smoothed Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.StatisticalMethods.DMA(Timeseries.Timeseries,System.Int32,System.Int32)">
+	<summary>
+ Double Moving Average
+ </summary>
+	<param name="Input">The Timeseries we want to smooth</param>
+	<param name="n">The first length parameter</param>
+	<param name="m">The second length parameter</param>
+	<returns>The smoothed Timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.StatisticalMethods.CSMA(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Centered Moving Average
+ </summary>
+	<param name="Input">The Timeseries we want to smooth</param>
+	<param name="n">The length parameter</param>
+	<returns>The smoothed Timeseries</returns>
+	<remarks></remarks>
+</member><member name="P:Timeseries.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Timeseries.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Timeseries.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:Timeseries.Decomposition.SimpleDecomposition.Trend">
+	<returns>The trend component of the timeseries</returns>
+</member><member name="P:Timeseries.Decomposition.SimpleDecomposition.Circularity">
+	<returns>The circle component of the timeseries</returns>
+</member><member name="P:Timeseries.Decomposition.SimpleDecomposition.Seasononality">
+	<returns>The seasonality component of the timeseries</returns>
+</member><member name="P:Timeseries.Decomposition.SimpleDecomposition.Randomness">
+	<returns>The randomness component of the timeseries</returns>
+</member><member name="P:Timeseries.Decomposition.SimpleDecomposition.SeasonalIndices">
+	<returns>The seasonal indices of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.#ctor(Timeseries.Timeseries)">
+	<summary>
+ Initializes a new timeseries
+ </summary>
+	<param name="Original">The timeseries for which the New sub is called</param>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.#ctor(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Initializes a new timeseries
+ </summary>
+	<param name="Original">The timeseries for which the New sub is called</param>
+	<param name="n">The length of the Moving Average to be calculated</param>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.Initializer(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Decomposes the Original timeseries into its Trend,Circle,Seasonality and Randomness components
+ </summary>
+	<param name="Original">The Original timeseries to be decomposed</param>
+	<param name="n">The length of the Moving Average to be calculated</param>
+</member><member name="T:Timeseries.Decomposition.SimpleDecomposition.MovingAverage">
+	<summary>
+ Creates an enumeration of the different Moving Average types
+ </summary>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetMovingAverage(Timeseries.Timeseries,Timeseries.Decomposition.SimpleDecomposition.MovingAverage,System.Int32,System.Int32)">
+	<summary>
+ Calculates the requested Moving Average of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which a Moving Average will be calculated</param>
+	<param name="MA">The type of Moving Average to be calculated</param>
+	<param name="n">The length of the Moving Average to be calculated</param>
+	<param name="m">The secondary length of the Moving Average to be calculated</param>
+	<returns>The timeseries whose time-points are the values of the requested Moving Average of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSxR(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Calculates the timeseries whose time-points are the seasonality ratios of the Original timeseries
+ </summary>
+	<param name="Original">The Original timeseries from which the seasonality ratios will be calculated</param>
+	<param name="TxC">The timeseries whose time-points are the product of the Trend and Circle components of the timeseries</param>
+	<returns>The timeseries whose time-points are the seasonality ratios of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetTxCxR(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Calculates the corresponding deseasonalised timeseries of the Original timeseries
+ </summary>
+	<param name="Original">The Original timeseries from which the deseasonalised timeseries will be calculated</param>
+	<param name="S">Th Seasonality component of the Original timeseries</param>
+	<returns>The corresponding deseasonalised timeseries of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetR(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Calculates the Randomness component of a deseasonalised timeseries
+ </summary>
+	<param name="TxCxR">The deseasonalised timeseries</param>
+	<param name="TxC">The timeseries whose time-points are the product of the Trend and Circle components of an original timeseries</param>
+	<returns>The Randomness component of the deseasonalised timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetRandomness(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Randomness component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Randomness component will be calculated</param>
+	<returns>The Randomness component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetRandomness(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Randomness component of the Original timeseries
+ </summary>
+	<param name="Original">The Original timeseries of which the Randomness component will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<returns>The Randomness component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetRandomness(Timeseries.Timeseries,System.Int32,System.Int32)">
+	<summary>
+ Calculates the Randomness component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Randomness component will be calculated </param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<returns>The Randomness component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetT(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Trend component of the timeseries
+ </summary>
+	<param name="TxC">The timeseries whose time-points are the product of the Trend and Circle components of an original timeseries</param>
+	<returns>The Trend component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetTrend(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Trend component of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Trend component will be calculated</param>
+	<returns>The Trend component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetTrend(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Trend component of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Trend component will be calculated</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<returns>The Trend component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetC(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Calculates the Circle component of the timeseries
+ </summary>
+	<param name="TxC">The timeseries whose time-points are the product of the Trend and Circle components of an original timeseries</param>
+	<param name="T">The Trend component of an original timeseries</param>
+	<returns>The Circle component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetCircle(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Circle component of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Circle component will be calculated</param>
+	<returns>The Circle component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetCircle(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Circle component of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Circle component will be calculated</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<returns>The Circle component of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetS(Timeseries.Timeseries,System.Int32,System.Int32)">
+	<summary>
+ Calculates the Seasonality Indices of a timeseries
+ </summary>
+	<param name="SI">The Seasonality Indices of a timeseries</param>
+	<param name="Length">The timeseries' length</param>
+	<param name="Offset">The timeseries' offset</param>
+	<returns>The Seasonality Indices of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonalityIndices(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Seasonality Indices of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality Indices will be calculated</param>
+	<returns>The Seasonality Indices of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonalityIndices(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Seasonality Indices of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality Indices will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<returns>The Seasonality Indices of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonalityIndices(Timeseries.Timeseries,System.Int32,System.Int32)">
+	<summary>
+ Calculates the Seasonality Indices of the timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality Indices will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<returns>he Seasonality Indices of the timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonality(Timeseries.Timeseries)">
+	<summary>
+ Calculates the Seasonality component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality component will be calculated</param>
+	<returns>The Seasonality component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonality(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Seasonality component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality component will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<returns>The Seasonality component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonality(Timeseries.Timeseries,System.Int32,System.Int32)">
+	<summary>
+ Calculates the Seasonality component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality component will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<returns>The Seasonality component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSeasonality(Timeseries.Timeseries,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Calculates the Seasonality component of the Original timeseries
+ </summary>
+	<param name="Original">The timeseries of which the Seasonality component will be calculated</param>
+	<param name="Seasons">The length of seasonality of the Original timeseries</param>
+	<param name="MovAvrLen">The length of the Moving Average to be calculated</param>
+	<param name="Length">The length of the returned timeseries</param>
+	<returns>The Seasonality component of the Original timeseries</returns>
+</member><member name="M:Timeseries.Decomposition.SimpleDecomposition.GetSIndices(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Calculates the Seasonality Indices of the timeseries
+ </summary>
+	<param name="SxR">The timeseries whose time-points are the Seasonality Ratios of an original timeseries</param>
+	<param name="seasons">The length of seasonality of the Original timeseries</param>
+	<returns>Calculates the Seasonality Indices of the timeseries</returns>
+</member><member name="M:Timeseries.Errors.p(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Percentage Error
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>The difference between the two timeseries as a percentage</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.q(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Absolute Scaled Error
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>The absolute scaled difference between the two timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.e(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ Error
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>The difference between the two timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.MeanError(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+  calculates the mean error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the mean error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.MSE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the mean squared error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the mean squared error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.RMSE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the root mean squared error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the root mean squared error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.MAE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the mean absolute error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the mean absolute error of the derived timeseries compared to the original timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.MdAE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the median of the mean absolute error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the median of the mean absolute error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.MAPE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the mean absolute percentage error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the mean absolute percentage error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.MdAPE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the median of the mean absolute percentage error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the median of the mean absolute percentage error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.sMAPE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the symmetric mean absolute percentage error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the symmetric mean absolute percentage error of the derived timeseries compared to the original timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.sMdAPE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+  calculates the median of the symmetric mean absolute percentage error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the median of the symmetric mean absolute percentage error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.LMSE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the base 10 logarithm of the mean squared error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the base 10 logarithm of the mean squared error of the derived timeseries compared to the original timeseries</returns>
+</member><member name="M:Timeseries.Errors.MAsE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the mean absolute scaled error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the mean absolute scaled error of the derived timeseries compared to the original timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Errors.MdAsE(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the median of the mean absolute scaled error of the derived timeseries compared to the original timeseries
+ </summary>
+	<param name="Original">The original timeseries</param>
+	<param name="Derived">The derived from the original timeseries</param>
+	<returns>the value of the median of the mean absolute scaled error of the derived timeseries compared to the original timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.MovingAverage.Calculate">
+	<summary>
+  Calculates the Forecast Model of the Simple Moving Average Method
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.SBA.Calculate">
+	<summary>
+ Calculates the Forecast Model of the Croston Method for intermittent demand manipulation
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.ThetaClassic.Calculate">
+	<summary>
+ Calculates Forecast Model of the ThetaClassic Method
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.InvalidParameterException.#ctor">
+	<summary>
+ Creates an exception that handles the call of functions with invalid 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.InvalidParameterException.#ctor(System.String)">
+	<summary>
+ Creates an exception that handles the call of functions with invalid 
+ </summary>
+	<param name="message"></param>
+	<remarks></remarks>
+</member><member name="M:Timeseries.InvalidParameterException.#ctor(System.String,System.Exception)">
+	<summary>
+ Creates an exception that handles the call of functions with invalid 
+ </summary>
+	<param name="message"></param>
+	<param name="inner"></param>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.Calculate">
+	<summary>
+ Calculates the Forecast Model of the LRL Method
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.LRLTimeseries(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ Returns the Forecast Model of the LRL Method
+ </summary>
+	<param name="Input">The Input Timeseries</param>
+	<param name="Horizon">The horizon of the forecast</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.GetB(Timeseries.Timeseries)">
+	<summary>
+ Returns the Slope Value of the LRL Method
+ </summary>
+	<param name="Input">The Input Timeseries</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.GetA(Timeseries.Timeseries,System.Double)">
+	<summary>
+ Returns the Constant Value of the LRL Method
+ </summary>
+	<param name="Input">The Input Timeseries</param>
+	<param name="b">The slope value of LRL</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.GetA(Timeseries.Timeseries)">
+	<summary>
+ Returns the Constant Value of the LRL Method
+ </summary>
+	<param name="Input">The Input Timeseries</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.LRL.GetParameters(Timeseries.Timeseries)">
+	<summary>
+ Returns a tuple of (Constant,Slope) of the LRL of the input timeseries
+ </summary>
+	<param name="Input">The input timeseries</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Timeseries.Timeseries.Length">
+	<summary>
+ Returns the length of timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.#ctor">
+	<summary>
+ Defines a new timeseries
+ </summary>
+</member><member name="M:Timeseries.Timeseries.#ctor(System.Double[],System.Int32,System.Int32)">
+	<summary>
+ Defines a new timeseries
+ </summary>
+</member><member name="M:Timeseries.Timeseries.#ctor(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Defines a new timeseries
+ </summary>
+</member><member name="M:Timeseries.Timeseries.op_Addition(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ adds a timeseries B to a timeseries A
+ </summary>
+	<param name="A">the first timeseries to be added</param>
+	<param name="B">the second timeseries to be added</param>
+	<returns>the timeseries whose time-points are the sum of the corresponding time-points of timeseries A and B</returns>
+	<remarks>if the timeseries have different lengths,then the new length is floored to the length of the shortest timeseries</remarks>
+</member><member name="M:Timeseries.Timeseries.op_Addition(Timeseries.Timeseries,System.Double)">
+	<summary>
+ adds constant to a timeseries
+ </summary>
+	<param name="A">the timeseries to which the constant will be added</param>
+	<param name="b">the constant to be added to the timeseries</param>
+	<returns>the timeseries whose time-points are the sum of the corresponding time-points of timeseries A and constant b</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.op_Addition(System.Double,Timeseries.Timeseries)">
+	<summary>
+ adds constant to a timeseries
+ </summary>
+	<param name="b">the constant to be added to the timeseries</param>
+	<param name="A">the timeseries to which the constant will be added</param>
+	<returns>the timeseries whose time-points are the sum of the corresponding time-points of timeseries A and constant b</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.op_Subtraction(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ subtracts a timeseries B from a timeseries A
+ </summary>
+	<param name="A">the timeseries that represents the minuend of the subtraction</param>
+	<param name="B">the timeseries that represents the subtrahend of the subtraction</param>
+	<returns>the timeseries whose time-points are the difference of the corresponding time-points of timeseries A and B</returns>
+	<remarks>if the timeseries have different lengths,then the new length is floored to the length of the shortest timeseries</remarks>
+</member><member name="M:Timeseries.Timeseries.op_Subtraction(System.Double,Timeseries.Timeseries)">
+	<summary>
+ subtracts a timeseries from a constant
+ </summary>
+	<param name="b">the constant that represents the minuend of the subtraction</param>
+	<param name="A">the timeseries that represents the subtrahend of the subtraction</param>
+	<returns>the timeseries whose time-points are the difference of the corresponding time-points of timeseries A and constant b</returns>
+</member><member name="M:Timeseries.Timeseries.op_Subtraction(Timeseries.Timeseries,System.Double)">
+	<summary>
+ subtracts a constant from a timeseries
+ </summary>
+	<param name="A">the timeseries that represents the minuend of the subtraction</param>
+	<param name="b">the constant that represents the subtrahend of the subtraction</param>
+	<returns>the timeseries whose time-points are the difference of the corresponding time-points of constant b and timeseries A</returns>
+</member><member name="M:Timeseries.Timeseries.op_Multiply(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ calculates the product of a timeseries A and a timeseries B
+ </summary>
+	<param name="A">the timeseries that represents the first factor of the multiplication</param>
+	<param name="B">the timeseries that represents the second factor of the multiplication</param>
+	<returns>the timeseries whose time-points are the product of the corresponding time-points of timeseries A and timeseries B</returns>
+	<remarks>if the timeseries have different lengths,then the new length is floored to the length of the shortest timeseries</remarks>
+</member><member name="M:Timeseries.Timeseries.op_Multiply(System.Double,Timeseries.Timeseries)">
+	<summary>
+ calculates the product of a constant b and a timeseries A
+ </summary>
+	<param name="b">the constant that represents the first factor of the multiplication</param>
+	<param name="A">the timeseries that represents the second factor of the multiplication</param>
+	<returns>the timeseries whose time-points are the product of the corresponding time-points of constant b and timeseries A</returns>
+</member><member name="M:Timeseries.Timeseries.op_Multiply(Timeseries.Timeseries,System.Double)">
+	<summary>
+ calculates the product of a timeseries A and a constant b
+ </summary>
+	<param name="A">the timeseries that represents the first factor of the multiplication</param>
+	<param name="b">the constant that represents the second factor of the multiplication</param>
+	<returns>the timeseries whose time-points are the product of the corresponding time-points of timeseries A and constant b</returns>
+</member><member name="M:Timeseries.Timeseries.op_Division(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ divides timeseries A with a timeseries B
+ </summary>
+	<param name="A">the timeseries that represents the dividend of the division</param>
+	<param name="B">the timeseries that represents the divisor of the division</param>
+	<returns>the timeseries whose time-points are the quotient of the corresponding time-points of timeseries A and timeseries B</returns>
+	<remarks>if the timeseries have different lengths,then the new length is floored to the length of the shortest timeseries</remarks>
+</member><member name="M:Timeseries.Timeseries.op_Division(System.Double,Timeseries.Timeseries)">
+	<summary>
+ divides a constant b with a timeseries A
+ </summary>
+	<param name="b">the constant that represents the dividend of the division</param>
+	<param name="A">the timeseries that represents the divisor of the division</param>
+	<returns>the timeseries whose time-points are the quotient of the corresponding time-points of constant b and timeseries A</returns>
+</member><member name="M:Timeseries.Timeseries.op_Division(Timeseries.Timeseries,System.Double)">
+	<summary>
+ divides a timeseries A with a constant b
+ </summary>
+	<param name="A">the timeseries which represents the dividend of the division</param>
+	<param name="b">the constant that represents the divisor of the division</param>
+	<returns>the timeseries whose time-points are the quotient of the corresponding time-points of timeseries A and constant b</returns>
+</member><member name="M:Timeseries.Timeseries.op_Exponent(Timeseries.Timeseries,System.Double)">
+	<summary>
+ raises timeseries A to power expo
+ </summary>
+	<param name="A">the timeseries that represents the base of the exponentiation</param>
+	<param name="expo">the constant that represents the exponent of the exponentiation</param>
+	<returns>the timeseries whose time-points are the exponentiation of the corresponding time-points of timeseries A and constant expo</returns>
+</member><member name="M:Timeseries.Timeseries.op_Exponent(Timeseries.Timeseries,System.Int32)">
+	<summary>
+ raises timeseries A to (integer) power expo
+ </summary>
+	<param name="A">the timeseries that represents the base of the exponentiation</param>
+	<param name="expo">the constant that represents the exponent of the exponentiation</param>
+	<returns>the timeseries whose time-points are the exponentiation of the corresponding time-points of timeseries A and constant expo</returns>
+</member><member name="M:Timeseries.Timeseries.op_Concatenate(Timeseries.Timeseries,Timeseries.Timeseries)">
+	<summary>
+ concatenates the additional time-points of a timeseries to the end of a shorter timeseries
+ </summary>
+	<param name="A">the timeseries to which the time-points will be concatenated</param>
+	<param name="B">the timeseries whose time-points will be concatenated</param>
+	<returns>a timeseries whose time-points are those of the shorter timeseries,concatenated with the additional time-points of the longer one</returns>
+	<remarks>if timeseries A is longer than timeseries B,then timeseries A is returned</remarks>
+</member><member name="M:Timeseries.Timeseries.Maximum">
+	<summary>
+ calculates the maximum time-point of the timeseries
+ </summary>
+	<returns>the value of the maximum time-point of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Minimum">
+	<summary>
+ calculates the minimum time-point of the timeseries
+ </summary>
+	<returns>the value of the minimum time-point of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Median">
+	<summary>
+ calculates the median of the timeseries
+ </summary>
+	<returns>the value of the median of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Average">
+	<summary>
+ calculates the average of the time-points of the timeseries
+ </summary>
+	<returns>the value of the average of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.SubAverage(System.Int32,System.Int32)">
+	<summary>
+ calculates the average of a subset of time-points of the timeseries
+ </summary>
+	<param name="len">the length of the subset of time-points of the timeseries</param>
+	<param name="start">the starting index of the subset of time-points of the timeseries</param>
+	<returns>the value of the average of the subset of time-points of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Sum">
+	<summary>
+ calculates the sum of the time-points of the timeseries
+ </summary>
+	<returns>the value of the sum of the time-series</returns>
+</member><member name="M:Timeseries.Timeseries.SubSum(System.Int32,System.Int32)">
+	<summary>
+ calculates the sum of a subset of time-points of a timeseries
+ </summary>
+	<param name="len">the length of the subset of time-points of the timeseries</param>
+	<param name="start">the starting index of the subset of time-points of the timeseries</param>
+	<returns>the value of the sum of the subset of time-points of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.StDev">
+	<summary>
+ calculates the standard deviation of the timeseries
+ </summary>
+	<returns>the value of the standard deviation of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Variance">
+	<summary>
+ calculates the variance of the timeseries
+ </summary>
+	<returns>the value of the variance of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Covariance(Timeseries.Timeseries)">
+	<summary>
+ calculates the covariance of a given timeseries with timeseries B
+ </summary>
+	<param name="B">the timeseries of which the covariance with the given timeseries is calculated</param>
+	<returns>the value of the covariance of the given timeseries with timeseries B</returns>
+</member><member name="M:Timeseries.Timeseries.rXY(Timeseries.Timeseries)">
+	<summary>
+ calculates the correlation of the given timeseries with timeseries B
+ </summary>
+	<param name="B">the timeseries of which the correlation with the given timeseries is calculated</param>
+	<returns>the value of the correlation of the given timeseries with timeseries B</returns>
+</member><member name="M:Timeseries.Timeseries.ACF">
+	<summary>
+ calculates the auto-correlation of the timeseries
+ </summary>
+	<returns>the value of the auto-correlation of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.ACF(System.Int32)">
+	<summary>
+ calculates the auto-correlation of the timeseries
+ <paramref name="pos">The number of periods in a seasonality circle</paramref>
+	</summary>
+	<returns>the value of the auto-correlation of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.CoVar">
+	<summary>
+ calculates the coefficient of variation of the timeseries
+ </summary>
+	<returns>the value of the coefficient of variation of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.IDIn">
+	<summary>
+ calculates the Intermittent Demand Interval (the average interval between non-zero time-points) of the timeseries
+ </summary>
+	<returns>the value of the average interval between non-zero time-points of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.GrowthRate">
+	<summary>
+ calculates the growth rate of the timeseries
+ </summary>
+	<returns>the value of the growth rate of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.SubTimeseries(System.Int32,System.Int32)">
+	<summary>
+ derives a new timeseries with a subset of the time-points of the original timeseries
+ </summary>
+	<param name="len">the length of the new timeseries</param>
+	<param name="start">the starting index from which the time-points of the new timeseries will be derived</param>
+	<returns>a sub-timeseries of the original timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.Absolute">
+	<summary>
+ calculates the absolute value of every time-point in the timeseries
+ </summary>
+	<returns>the timeseries whose time-points are the absolute values of the corresponding time-points of the original timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Scale">
+	<summary>
+ calculates the difference between adjacent time-points of the timeseries
+ </summary>
+	<returns>a timeseries whose time-points are the differences of adjacent time-points of the timeseries</returns>
+</member><member name="M:Timeseries.Timeseries.Reverse">
+	<summary>
+ Returns the reversed Timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.toString">
+	<summary>
+ Returns a String containing information about the Timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.UpdateFrequency(System.Int32)">
+	<summary>
+ Updates the value of Timeseries' Frequency
+ </summary>
+	<param name="NewFrequency"></param>
+	<returns>A new updated timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.UpdateOffset(System.Int32)">
+	<summary>
+ Updates the value of Timeseries' Offset
+ </summary>
+	<param name="NewOffset"></param>
+	<returns>A new updated timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.UpdateValue(System.Double,System.Int32)">
+	<summary>
+ Updates the value of Timeseries' Offset
+ </summary>
+	<param name="NewValue">The new value</param>
+	<param name="Position">The position that the new value should be updated</param>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.LastValue">
+	<summary>
+ Returns the last DataPoint Value of the Timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.FirstValue">
+	<summary>
+ Returns the first DataPoint Value of the Timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.Round(System.Int32)">
+	<summary>
+ Rounds every element of the timeseries to the desired number of fractional digits
+ </summary>
+	<param name="Decimals"></param>
+	<returns>The rounded timeseries</returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.ZeroesCount">
+	<summary>
+ Returns the number of datapoints that are equal to zero
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.ZeroesPercentage">
+	<summary>
+ Returns the percentage of zero valued datapoints in the timeseries
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Timeseries.HasSeasonalityBehavior">
+	<summary>
+ Returns if the timeseries has a significant seasonality behavior
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.PropertiesMismatchException.#ctor">
+	<summary>
+ Creates an exception that handles the call of functions with parameters that do not match 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.PropertiesMismatchException.#ctor(System.String)">
+	<summary>
+ Creates an exception that handles the call of functions with parameters that do not match 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.PropertiesMismatchException.#ctor(System.String,System.Exception)">
+	<summary>
+ Creates an exception that handles the call of functions with parameters that do not match 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.Naive.Calculate">
+	<summary>
+ Calculates the Forecast Model of the Naive Method
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Timeseries.MissingAndZeroValues.semisum(Timeseries.Timeseries,System.Collections.Generic.List{System.Int32})">
+	<summary>
+ Updates the missing or zero values of a Timeseries based on the semisum method
+ </summary>
+	<param name="Original">The input timeseries</param>
+	<param name="Indices">The list of Missing or Zero Values indices</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.MissingAndZeroValues.seasonal(Timeseries.Timeseries,System.Collections.Generic.List{System.Int32})">
+	<summary>
+ Updates the missing or zero values of a Timeseries based on the seasonal average (The frequency of the timeseries is treated as its seasonality)
+ </summary>
+	<param name="Original">The input timeseries</param>
+	<param name="Indices">The list of Missing or Zero Values indices</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Timeseries.MissingAndZeroValues.seasonal(Timeseries.Timeseries,System.Collections.Generic.List{System.Int32},System.Int32)">
+	<summary>
+ Updated the missing or zero Values of a Timeseries based on the seasonal average 
+ </summary>
+	<param name="Original">The input timeseries</param>
+	<param name="Indices">The list of Missing or Zero Values indices</param>
+	<param name="seasons">The ranger of seasonal behavior</param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

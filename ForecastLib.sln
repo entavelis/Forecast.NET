@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ForecastLib", "Timeseries\ForecastLib.vbproj", "{DE542B57-9D4E-4EF8-A914-1FCB43313C1C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TStester", "ConsoleApplication1\TStester.vbproj", "{EBBE6779-D94F-4595-9796-C0E9D243231B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DE542B57-9D4E-4EF8-A914-1FCB43313C1C} = {DE542B57-9D4E-4EF8-A914-1FCB43313C1C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://83.212.98.2:8080/tfs/rifis
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ConsoleApplication1\\TStester.vbproj
+		SccProjectName1 = ConsoleApplication1
+		SccLocalPath1 = ConsoleApplication1
+		SccProjectUniqueName2 = Timeseries\\ForecastLib.vbproj
+		SccProjectName2 = Timeseries
+		SccLocalPath2 = Timeseries
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE542B57-9D4E-4EF8-A914-1FCB43313C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE542B57-9D4E-4EF8-A914-1FCB43313C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE542B57-9D4E-4EF8-A914-1FCB43313C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE542B57-9D4E-4EF8-A914-1FCB43313C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBE6779-D94F-4595-9796-C0E9D243231B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBE6779-D94F-4595-9796-C0E9D243231B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBE6779-D94F-4595-9796-C0E9D243231B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBE6779-D94F-4595-9796-C0E9D243231B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

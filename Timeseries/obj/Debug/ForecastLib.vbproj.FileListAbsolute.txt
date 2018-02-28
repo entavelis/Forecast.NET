@@ -1,0 +1,9 @@
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\bin\Debug\Timeseries.dll
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\bin\Debug\Timeseries.pdb
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\bin\Debug\Timeseries.xml
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\Timeseries.Resources.resources
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\ForecastLib.vbproj.GenerateResource.Cache
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\Timeseries.dll
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\Timeseries.xml
+c:\users\v\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\Timeseries.pdb
+C:\Users\V\documents\visual studio 2013\Projects\Timeseries\Timeseries\obj\Debug\ForecastLib.vbprojResolveAssemblyReference.cache
